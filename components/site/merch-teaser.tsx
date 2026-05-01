@@ -47,14 +47,14 @@ const tileFor = (format: string, i: number) => {
 
 export function MerchTeaser() {
   return (
-    <section id="merch" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+    <section id="merch" className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:py-20">
       <FadeIn>
-        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-border pb-6">
+        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5 sm:gap-6 sm:pb-6">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.32em]">
               Merch
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight md:text-6xl">
+            <h2 className="mt-2 font-display text-4xl leading-[0.95] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl">
               Vinyls, CDs & more
             </h2>
           </div>
@@ -64,7 +64,7 @@ export function MerchTeaser() {
         </div>
       </FadeIn>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
         {merch.map((item, i) => (
           <FadeIn key={item.slug} delay={i * 0.05}>
             <article className="group flex h-full flex-col">
@@ -73,12 +73,12 @@ export function MerchTeaser() {
                   {tileFor(item.format, i)}
                 </div>
               </AspectRatio>
-              <div className="mt-5 flex items-start justify-between gap-3">
+              <div className="mt-4 flex items-start justify-between gap-2 sm:mt-5 sm:gap-3">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground sm:tracking-[0.24em]">
                     {item.format}
                   </p>
-                  <h3 className="mt-1 font-display text-xl leading-tight tracking-tight">
+                  <h3 className="mt-1 font-display text-base leading-tight tracking-tight sm:text-xl">
                     {item.name}
                   </h3>
                 </div>
@@ -87,14 +87,14 @@ export function MerchTeaser() {
                 </span>
               </div>
               {item.description && (
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+                <p className="mt-2 text-[13px] leading-relaxed text-foreground/75 sm:mt-3 sm:text-sm">
                   {item.description}
                 </p>
               )}
               {item.link && (
                 <Link
                   href={item.link.href}
-                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-border px-3 py-1.5 text-[11px] uppercase tracking-[0.22em] transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
+                  className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-border px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] transition-colors hover:border-foreground hover:bg-foreground hover:text-background sm:mt-5 sm:text-[11px]"
                 >
                   {item.link.label} →
                 </Link>

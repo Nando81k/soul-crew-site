@@ -83,23 +83,23 @@ export function HeroCarousel() {
   });
 
   return (
-    <section className="relative h-[88vh] min-h-[640px] w-full overflow-hidden bg-foreground text-background">
+    <section className="relative h-[82vh] min-h-130 w-full overflow-hidden bg-foreground text-background sm:h-[88vh] sm:min-h-160">
       <Carousel
         setApi={setApi}
         opts={{ loop: true, duration: 60 }}
         plugins={reduced ? [] : [autoplay]}
         className="h-full"
       >
-        <CarouselContent className="h-[88vh] min-h-[640px] ml-0">
+        <CarouselContent className="ml-0 h-[82vh] min-h-130 sm:h-[88vh] sm:min-h-160">
           {slides.map((slide, i) => (
-            <CarouselItem key={slide.eyebrow} className="relative h-full pl-0 basis-full">
+            <CarouselItem key={slide.eyebrow} className="relative h-full basis-full pl-0">
               <SlideBackground
                 image={slide.image}
                 alt={slide.alt}
                 priority={i === 0}
                 active={active === i}
               />
-              <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-24 md:pb-32">
+              <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-20 sm:px-6 sm:pb-24 md:pb-32">
                 <AnimatePresence mode="wait">
                   {active === i && (
                     <motion.div
@@ -110,18 +110,18 @@ export function HeroCarousel() {
                       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                       className="max-w-3xl"
                     >
-                      <p className="text-xs uppercase tracking-[0.4em] text-background/70">
+                      <p className="text-[10px] uppercase tracking-[0.32em] text-background/70 sm:text-xs sm:tracking-[0.4em]">
                         {String(i + 1).padStart(2, "0")} · {slide.eyebrow}
                       </p>
-                      <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-tight md:text-8xl">
+                      <h1 className="mt-4 font-display text-[2.75rem] leading-[0.95] tracking-tight sm:mt-6 sm:text-6xl md:text-8xl">
                         {slide.headline}
                       </h1>
-                      <p className="mt-6 max-w-xl text-base text-background/80 md:text-lg">
+                      <p className="mt-4 max-w-xl text-sm text-background/80 sm:mt-6 sm:text-base md:text-lg">
                         {slide.body}
                       </p>
                       <Link
                         href={slide.cta.href}
-                        className="mt-10 inline-flex items-center gap-3 rounded-full border border-background/40 px-6 py-3 text-xs uppercase tracking-[0.22em] text-background transition-colors hover:bg-background hover:text-foreground"
+                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-background/40 px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-background transition-colors hover:bg-background hover:text-foreground sm:mt-10 sm:px-6 sm:py-3 sm:text-xs"
                       >
                         {slide.cta.label}
                         <span aria-hidden>→</span>
@@ -134,12 +134,12 @@ export function HeroCarousel() {
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="left-6 size-12 border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground" />
-        <CarouselNext className="right-6 size-12 border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground" />
+        <CarouselPrevious className="left-3 hidden size-11 border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground sm:left-6 sm:flex sm:size-12" />
+        <CarouselNext className="right-3 hidden size-11 border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground sm:right-6 sm:flex sm:size-12" />
       </Carousel>
 
-      <div className="pointer-events-none absolute inset-x-0 top-6 z-20 mx-auto flex max-w-7xl items-center justify-between px-6">
-        <p className="font-display text-sm uppercase tracking-[0.4em] text-background/80">
+      <div className="pointer-events-none absolute inset-x-0 top-4 z-20 mx-auto flex max-w-7xl items-center justify-between px-5 sm:top-6 sm:px-6">
+        <p className="font-display text-xs uppercase tracking-[0.32em] text-background/80 sm:text-sm sm:tracking-[0.4em]">
           SOUL · CREW
         </p>
         <p className="hidden text-xs uppercase tracking-[0.32em] text-background/70 md:block">
@@ -147,7 +147,7 @@ export function HeroCarousel() {
         </p>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-20 flex justify-center gap-3">
+      <div className="pointer-events-none absolute inset-x-0 bottom-6 z-20 flex justify-center gap-2 sm:bottom-8 sm:gap-3">
         {slides.map((slide, i) => (
           <button
             key={slide.eyebrow}

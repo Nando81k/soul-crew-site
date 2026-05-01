@@ -8,14 +8,14 @@ export function NewsList() {
       id="news"
       className="border-y border-border bg-foreground text-background"
     >
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:py-20">
         <FadeIn>
-          <div className="flex flex-wrap items-end justify-between gap-6 border-b border-background/20 pb-6">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-background/20 pb-5 sm:gap-6 sm:pb-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.32em] text-background/70">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-background/70 sm:text-xs sm:tracking-[0.32em]">
                 On The Road
               </p>
-              <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight md:text-6xl">
+              <h2 className="mt-2 font-display text-4xl leading-[0.95] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl">
                 News & appearances
               </h2>
             </div>
@@ -29,25 +29,25 @@ export function NewsList() {
         <ul className="mt-8 divide-y divide-background/15">
           {news.map((item, i) => (
             <FadeIn key={item.slug} delay={(i % 6) * 0.04}>
-              <li className="grid grid-cols-12 gap-4 py-6">
-                <div className="col-span-12 md:col-span-2">
-                  <p className="text-xs uppercase tracking-[0.28em] text-background/60">
+              <li className="grid grid-cols-12 gap-3 py-5 sm:gap-4 sm:py-6">
+                <div className="col-span-12 flex items-center justify-between gap-3 md:col-span-2 md:flex-col md:items-start md:justify-start">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-background/60 sm:text-xs sm:tracking-[0.28em]">
                     {item.date}
                   </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.22em] text-background/50">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-background/50 md:mt-1">
                     {item.kind}
                   </p>
                 </div>
                 <div className="col-span-12 md:col-span-7">
-                  <h3 className="font-display text-2xl leading-tight tracking-tight md:text-3xl">
+                  <h3 className="font-display text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl">
                     {item.title}
                   </h3>
                   {item.location && (
-                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-background/60">
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-background/60 sm:text-xs">
                       {item.location}
                     </p>
                   )}
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-background/80">
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-background/80 sm:mt-3">
                     {item.body}
                   </p>
                 </div>

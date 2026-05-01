@@ -4,8 +4,8 @@ import { bioPillars } from "@/content/bio";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 bg-background">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16">
+        <div className="grid gap-10 sm:gap-12 md:grid-cols-3">
           <div>
             <p className="font-display text-3xl font-semibold tracking-tight">
               SOUL CREW
@@ -57,7 +57,7 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-8 text-xs uppercase tracking-[0.18em] text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:mt-16 sm:gap-4 sm:pt-8 sm:text-xs md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} SOUL CREW · DANIEL DeGREE</p>
           <p>Keeping our soul · Soulful · Winning souls for Jesus Christ</p>
         </div>

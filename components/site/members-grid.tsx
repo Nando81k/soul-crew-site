@@ -25,25 +25,25 @@ export function MembersGrid({ variant = "full", limit }: MembersGridProps) {
       id="members"
       className={
         variant === "preview"
-          ? "w-full px-4 py-16 sm:px-6 md:py-20 lg:px-12"
-          : "w-full px-4 pb-20 pt-12 sm:px-6 lg:px-12"
+          ? "w-full px-5 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-12"
+          : "w-full px-5 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12 lg:px-12"
       }
     >
       <div className="mx-auto max-w-400">
         <FadeIn>
-          <div className="flex flex-wrap items-end justify-between gap-6 border-b border-border pb-6">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5 sm:gap-6 sm:pb-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.32em]">
                 The Crew
               </p>
-              <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight md:text-6xl">
+              <h2 className="mt-2 font-display text-4xl leading-[0.95] tracking-tight sm:mt-3 sm:text-5xl md:text-6xl">
                 {variant === "preview" ? "Members" : "All members"}
               </h2>
             </div>
             {variant === "preview" && (
               <Link
                 href="/members"
-                className="text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground sm:text-xs"
               >
                 View all members →
               </Link>
@@ -60,27 +60,41 @@ export function MembersGrid({ variant = "full", limit }: MembersGridProps) {
                   delay={(rowIdx * 2 + colIdx) % 6 * 0.04}
                   className="group flex flex-[1_1_0%] basis-0 transition-[flex-grow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:hover:flex-[1.45_1_0%]"
                 >
-                  <article className="relative flex w-full bg-background">
-                    <div className="flex flex-1 flex-col p-8 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background">
-                      <div className="flex items-start justify-between">
-                        <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground transition-colors group-hover:text-background/70">
+                  <article className="relative flex w-full flex-col bg-background sm:flex-row">
+                    {member.image && (
+                      <div
+                        aria-hidden
+                        className="relative aspect-21/9 w-full shrink-0 overflow-hidden bg-muted sm:hidden"
+                      >
+                        <Image
+                          src={member.image}
+                          alt=""
+                          fill
+                          sizes="(min-width: 640px) 0px, 100vw"
+                          className="grayscale-img object-cover object-[center_30%]"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-1 flex-col p-6 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background sm:p-8">
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground transition-colors group-hover:text-background/70 sm:text-xs">
                           {member.role}
                         </p>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors group-hover:text-background/70">
+                        <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors group-hover:text-background/70 sm:text-xs">
                           {member.location}
                         </p>
                       </div>
-                      <h3 className="mt-10 font-display text-3xl leading-tight tracking-tight md:text-4xl">
+                      <h3 className="mt-6 font-display text-2xl leading-tight tracking-tight sm:mt-10 sm:text-3xl md:text-4xl">
                         {member.name}
                       </h3>
-                      <p className="mt-6 text-sm leading-relaxed text-foreground/80 transition-colors group-hover:text-background/85">
+                      <p className="mt-4 text-sm leading-relaxed text-foreground/80 transition-colors group-hover:text-background/85 sm:mt-6">
                         {member.bio}
                       </p>
                     </div>
                     {member.image && (
                       <div
                         aria-hidden
-                        className="relative w-0 shrink-0 overflow-hidden bg-muted transition-[width] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:group-hover:w-56"
+                        className="relative hidden w-0 shrink-0 overflow-hidden bg-muted transition-[width] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:block sm:group-hover:w-56"
                       >
                         <Image
                           src={member.image}
