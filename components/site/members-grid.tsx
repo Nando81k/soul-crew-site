@@ -60,37 +60,37 @@ export function MembersGrid({ variant = "full", limit }: MembersGridProps) {
                   delay={(rowIdx * 2 + colIdx) % 6 * 0.04}
                   className="group flex flex-[1_1_0%] basis-0 transition-[flex-grow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:hover:flex-[1.45_1_0%]"
                 >
-                  <article className="relative flex w-full flex-col bg-background sm:flex-row">
-                    {member.image && (
-                      <div
-                        aria-hidden
-                        className="relative aspect-21/9 w-full shrink-0 overflow-hidden bg-muted sm:hidden"
-                      >
-                        <Image
-                          src={member.image}
-                          alt=""
-                          fill
-                          sizes="(min-width: 640px) 0px, 100vw"
-                          className="grayscale-img object-cover object-[center_30%]"
-                        />
-                      </div>
-                    )}
-                    <div className="flex flex-1 flex-col p-6 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background sm:p-8">
-                      <div className="flex items-start justify-between gap-4">
-                        <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground transition-colors group-hover:text-background/70 sm:text-xs">
+                  <article className="relative flex w-full bg-background">
+                    <div className="flex min-w-0 flex-1 flex-col p-5 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background sm:p-8">
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground transition-colors group-hover:text-background/70 sm:tracking-[0.28em] sm:text-xs">
                           {member.role}
                         </p>
-                        <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors group-hover:text-background/70 sm:text-xs">
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground transition-colors group-hover:text-background/70 sm:tracking-[0.18em] sm:text-xs">
                           {member.location}
                         </p>
                       </div>
                       <h3 className="mt-6 font-display text-2xl leading-tight tracking-tight sm:mt-10 sm:text-3xl md:text-4xl">
                         {member.name}
                       </h3>
-                      <p className="mt-4 text-sm leading-relaxed text-foreground/80 transition-colors group-hover:text-background/85 sm:mt-6">
+                      <p className="mt-3 text-[13px] leading-relaxed text-foreground/80 transition-colors group-hover:text-background/85 sm:mt-6 sm:text-sm">
                         {member.bio}
                       </p>
                     </div>
+                    {member.image && (
+                      <div
+                        aria-hidden
+                        className="relative w-[42%] shrink-0 self-stretch overflow-hidden bg-muted sm:hidden"
+                      >
+                        <Image
+                          src={member.image}
+                          alt=""
+                          fill
+                          sizes="(min-width: 640px) 0px, 42vw"
+                          className="grayscale-img object-cover"
+                        />
+                      </div>
+                    )}
                     {member.image && (
                       <div
                         aria-hidden
